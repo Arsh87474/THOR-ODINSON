@@ -31,6 +31,11 @@ def trainsearch(location):
             return("There is a train to " + location + ", and it departs at every hour and costs Rs.2000.")
     else:
         return ("Sorry,No trains to " + location + " at this point.")
+
+
+import random
+
+
 knock_knock = [
     "Knock knock. Who’s there? Cow says. Cow says who? No, a cow says mooooo!",
     "Knock knock. Who’s there? A little old lady. A little old lady who? All this time, I had no idea you could yodel.",
@@ -90,37 +95,34 @@ print("Hello ", name, ", I am Jarvis 2.0.")
 
 time.sleep(1.0)
 
-
-
-
-
 while True:
-    cmdin = input("""
+    opt = input("""
     To search for flights, type in 'F': 
     To search for Trains, type in 'T'. :
     To hear a joke, type in 'J', :
     To calculate, type 'C'. :
     To send a Email, type 'E':   
     To play guess the number, type 'G':
-    To quit, type 'Q':
+    To open Palindrome checker, type 'P' 
+    To quit, type 'Q':\n
     """)
-    
-    if cmdin == "F" or cmdin == "f":
+
+    if opt == "F" or opt == "f":
         location = input("Where do you want to fly to?: ")
         out = travel.flightsearch(location)
         print(out)
         time.sleep(1.0)
-    elif cmdin == "T" or cmdin == "t":
+    elif opt == "T" or opt == "t":
         location = input("Where do you want to travel to?: ")
         out = travel.trainsearch(location)
         print(out)
         time.sleep(1.0)
-    elif cmdin == "J" or cmdin == "j" :
+    elif opt == "J" or opt == "j":
         type = input("Do you want to hear a 'Riddle' or a 'Knock Knock'?: ")
         out = jokebot(type)
         print(out)
         time.sleep(1.0)
-    elif cmdin == "E" or cmdin == "e":
+    elif opt == "E" or opt == "e":
         to = input("To: ")
         subject = input("Subject: ")
         email = input(""" Email: 
@@ -129,27 +131,19 @@ while True:
         time.sleep(1.5)
         print(f"Sent {subject} to {to}")
         time.sleep(1.0)
-    elif cmdin == "P" or cmdin == "p":
-        print("Hello I am The palindrome checker ")
-        num = int(input("Enter a number:"))
-        temp = num
-        rev = 0
-        while (num > 0):
-            dig = num % 10
-            rev = rev * 10 + dig
-            num = num // 10
-        if temp == rev:
-            print("The number is palindrome!")
-        else:
-            print("Not a palindrome!")
+    elif opt == "P" or opt == "p":
+        print("I am the PALINDROME checker")
+        p = input('Enter a any word or number and I will tell if it is a palindrome:\n')
 
-        string = input("Enter a word:")
+        mid = int(len(p) / 2)
+        for x in range(mid):
+            if p[x] != p[- (x + 1)]:
+                print("This is not a palindrome.")
+                exit(0)
 
-        if string == string[::-1]:
-            print("The string is a palindrome")
-        else:
-            print("Not a palindrome")
-    elif cmdin == "G" or cmdin == "g":
+        print("It is a palindrome")
+
+    elif opt == "G" or opt == "g":
         start = 1
         end = 1000
         mid = (int)((start + end) / 2)
@@ -168,7 +162,7 @@ while True:
                 end = mid
             mid = (int)((start + end) / 2)
         time.sleep(1.0)
-    elif cmdin == "C" or cmdin == "c":
+    elif opt == "C" or opt == "c":
         num1 = int(input("Input number one :  "))
         num2 = int(input("Input number two :  "))
         operator = input("To add, press'+'. To subtract, press '-'. To multiply, press '*'. To divide, press'/':  ")
@@ -185,10 +179,15 @@ while True:
             ans = "invalid input"
         print("your answer is:", ans)
         time.sleep(1.0)
-    elif cmdin == "Q" or cmdin == "q":
+    elif opt == "Q" or opt == "q":
         print(f"Bye {name}")
         break
     else:
         out = "Input a valid command."
         print(out)
         time.sleep(1.0)
+
+
+
+
+
