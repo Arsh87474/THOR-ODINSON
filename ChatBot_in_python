@@ -129,6 +129,26 @@ while True:
         time.sleep(1.5)
         print(f"Sent {subject} to {to}")
         time.sleep(1.0)
+    elif cmdin == "P" or cmdin == "p":
+        print("Hello I am The palindrome checker ")
+        num = int(input("Enter a number:"))
+        temp = num
+        rev = 0
+        while (num > 0):
+            dig = num % 10
+            rev = rev * 10 + dig
+            num = num // 10
+        if temp == rev:
+            print("The number is palindrome!")
+        else:
+            print("Not a palindrome!")
+
+        string = input("Enter a word:")
+
+        if string == string[::-1]:
+            print("The string is a palindrome")
+        else:
+            print("Not a palindrome")
     elif cmdin == "G" or cmdin == "g":
         start = 1
         end = 1000
