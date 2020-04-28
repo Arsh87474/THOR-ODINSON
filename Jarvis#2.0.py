@@ -1,11 +1,14 @@
 from datetime import datetime
 
-flight_locations = ["Delhi", "Chennai", "Mumbai", "Kolkatta", "Hyderabad", "New York", "Sydney", "Beijing", "Berlin", "San Fransisco"]
+flight_locations = ["Delhi", "Chennai", "Mumbai", "Kolkatta", "Hyderabad", "New York", "Sydney", "Beijing", "Berlin",
+                    "San Fransisco"]
 flight_times = [100, 300, 530, 1200, 1530, 1700, 1930, 2130, 2230]
 
-train_locations = ["Delhi", "Chennai", "Mumbai", "Kolkata", "Lahore", "Karachi", "Dhaka","Patna","Pune", "Hyderabad", "Darjeeling"]
+train_locations = ["Delhi", "Chennai", "Mumbai", "Kolkata", "Lahore", "Karachi", "Dhaka", "Patna", "Pune", "Hyderabad",
+                   "Darjeeling"]
 
 now = 0
+
 
 def flightsearch(location):
     if location in flight_locations:
@@ -17,24 +20,24 @@ def flightsearch(location):
                 next_flight = str(flightime)
                 current_time = str(current_time)
                 response = "The current time is " + current_time + ", and the next flight to " + location + " takes off at " + next_flight + " and costs Rs.5000."
-                return(response)
+                return (response)
                 break
     else:
         response = "Sorry, there aren't any flights to " + location + " at this moment."
-        return(response)
+        return (response)
+
 
 def trainsearch(location):
     if location in train_locations:
         if location in flight_locations:
-            return("There is a train to " + location + ". I would suggest you to book a flight.")
+            return ("There is a train to " + location + ". I would suggest you to book a flight.")
         else:
-            return("There is a train to " + location + ", and it departs at every hour and costs Rs.2000.")
+            return ("There is a train to " + location + ", and it departs at every hour and costs Rs.2000.")
     else:
         return ("Sorry,No trains to " + location + " at this point.")
 
 
 import random
-
 
 knock_knock = [
     "Knock knock. Who’s there? Cow says. Cow says who? No, a cow says mooooo!",
@@ -53,7 +56,7 @@ riddle_dict = {
 }
 
 
-def jokebot(type):
+def joke_bot(type):
     if type == "Knock Knock" or type == "knock knock":
         jokenum = random.randint(0, 3)
         out = knock_knock[jokenum]
@@ -65,30 +68,15 @@ def jokebot(type):
             return "You got it correct"
         else:
             return "You got it wrong the correct answer is" + answer
-from jokes import jokebot
+
+
+from jokes import joke_bot
 import travel
 import time
-
-
-def add(num1, num2):
-    output = num1 + num2
-    return output
-
-
-def subtract(num1, num2):
-    output = num1 - num2
-    return output
-
-
-def multiply(num1, num2):
-    output = num1 * num2
-    return output
-
-
-def divide(num1,num2):
-    output = num1 / num2
-    return output
-
+from calculator import add
+from calculator import subtract
+from calculator import multiply
+from calculator import divide
 
 name = input("Hello, I am your virtual assistant. What is your name?: ")
 print("Hello ", name, ", I am Jarvis 2.0.")
@@ -119,7 +107,7 @@ while True:
         time.sleep(1.0)
     elif opt == "J" or opt == "j":
         type = input("Do you want to hear a 'Riddle' or a 'Knock Knock'?: ")
-        out = jokebot(type)
+        out = joke_bot(type)
         print(out)
         time.sleep(1.0)
     elif opt == "E" or opt == "e":
@@ -151,16 +139,16 @@ while True:
         print(mid)
         while (True):
 
-            if (start == end):
+            if start == end:
                 print(" you thought of ", end)
                 break
             ans = input(' is your num greater than ' + str(mid) + " : ")
 
-            if (ans == "y"):
+            if ans == "y":
                 start = mid + 1
             else:
                 end = mid
-            mid = (int)((start + end) / 2)
+            mid = int((start + end) / 2)
         time.sleep(1.0)
     elif opt == "C" or opt == "c":
         num1 = int(input("Input number one :  "))
@@ -186,8 +174,3 @@ while True:
         out = "Input a valid command."
         print(out)
         time.sleep(1.0)
-
-
-
-
-
